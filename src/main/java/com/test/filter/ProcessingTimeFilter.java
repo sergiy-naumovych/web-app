@@ -11,10 +11,6 @@ import java.io.IOException;
  */
 public class ProcessingTimeFilter extends BaseFilter{
 
-    public ProcessingTimeFilter(){
-
-    }
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println(filterConfig.getInitParameterNames());
@@ -33,6 +29,6 @@ public class ProcessingTimeFilter extends BaseFilter{
 
     @Override
     public void destroy() {
-
+        System.out.println(">> ProcessingTimeFilter - destroy");
     }
 }
