@@ -7,7 +7,12 @@
     <filter>
         <filter-name>filter1</filter-name>
         <filter-class>com.test.filter.ProcessingTimeFilter</filter-class>
+        <init-param>
+            <param-name>param1</param-name>
+            <param-value>param1</param-value>
+        </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>filter1</filter-name>
         <url-pattern>/*</url-pattern>

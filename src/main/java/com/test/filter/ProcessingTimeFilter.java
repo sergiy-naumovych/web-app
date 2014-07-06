@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Created by SERGE on 06.07.2014.
  */
-public class ProcessingTimeFilter implements Filter {
+public class ProcessingTimeFilter extends BaseFilter{
 
     public ProcessingTimeFilter(){
 
@@ -15,6 +15,7 @@ public class ProcessingTimeFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
+        System.out.println(filterConfig.getInitParameterNames());
         System.out.println(">> ProcessingTimeFilter - init");
     }
 
