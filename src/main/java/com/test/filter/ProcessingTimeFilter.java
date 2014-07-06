@@ -2,6 +2,8 @@ package com.test.filter;
 
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -20,13 +22,14 @@ public class ProcessingTimeFilter extends BaseFilter{
     }
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         long inTime = System.nanoTime();
         chain.doFilter(req, res);
         long outTime = System.nanoTime();
         System.out.println(">> ProcessingTimeFilter: dt = " + (outTime - inTime));
         System.out.println();
     }
+
 
     @Override
     public void destroy() {
