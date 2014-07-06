@@ -24,7 +24,7 @@ public class AddAttributesToSession extends BaseFilter {
     @Override
     public void doFilter(HttpServletRequest servletRequest, HttpServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         //create session
-        HttpSession session = servletRequest.getSession();
+        HttpSession session = servletRequest.getSession(true);
 
         Enumeration<String> iter = filterConfig.getInitParameterNames();
         while(iter.hasMoreElements()){

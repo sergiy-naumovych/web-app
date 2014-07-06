@@ -19,7 +19,7 @@
     </filter-mapping>
     <servlet>
         <servlet-name>comingsoon</servlet-name>
-        <servlet-class>com.test.controller.MainController</servlet-class>
+        <servlet-class>com.test.controller.MockController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>comingsoon</servlet-name>
