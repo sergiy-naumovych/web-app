@@ -1,7 +1,9 @@
 package com.test.controller;
 
 import com.test.dao.ProductDao;
-import com.test.dao.ProductDaoMock;
+import com.test.dao.exception.DaoSystemException;
+import com.test.dao.exception.NoSuchEntityException;
+import com.test.dao.impl.ProductDaoMock;
 import com.test.entity.Product;
 
 import javax.servlet.ServletException;
@@ -33,10 +35,11 @@ public class ProductController extends HttpServlet {
                 //OK
                 req.getRequestDispatcher(PAGE_OK).forward(req, resp);
                 return;
-            } catch (NumberFormatException e){
-
+            } catch (NumberFormatException | NoSuchEntityException | DaoSystemException e){
+                //NOP
             }
-
         }
+
+        resp.sendRedirect(PAGE_ERROR);
     }
 }
