@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ProductDaoMock implements ProductDao {
 
-    private final Map<Integer, Product> memory = new ConcurrentHashMap<>();
+    private final Map<Integer, Product> memory = new ConcurrentHashMap<Integer, Product>();
 
     public ProductDaoMock() {
         this.memory.put(1, new Product(1, "Bread"));
@@ -35,6 +35,6 @@ public class ProductDaoMock implements ProductDao {
 
     @Override
     public List<Product> selectAll() throws DaoSystemException {
-        return new ArrayList<>(memory.values());
+        return new ArrayList<Product>(memory.values());
     }
 }

@@ -1,8 +1,7 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 3.1//EN"
- "http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_1.xsd" >
+<web-app xmlns="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 
-<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
   <display-name>Archetype Created Web Application</display-name>
 
     <!-- SERVLETS -->
@@ -34,7 +33,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>mvcMockController</servlet-name>
-        <url-pattern>/mvcMockController.do</url-pattern>
+        <url-pattern>/mvcMock.do</url-pattern>
     </servlet-mapping>
 
     <!-- session mock -->
@@ -44,7 +43,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>sessionMockController</servlet-name>
-        <url-pattern>/sessionMockController.do</url-pattern>
+        <url-pattern>/sessionMock.do</url-pattern>
     </servlet-mapping>
 
     <!-- cookie mock -->
@@ -54,11 +53,22 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>cookieMockController</servlet-name>
-        <url-pattern>/cookieMockController.do</url-pattern>
+        <url-pattern>/cookieMock.do</url-pattern>
     </servlet-mapping>
 
 
-    <!-- FILTERS -->
+    <!-- FILTERS
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    -->
     <!-- processing time -->
     <filter>
         <filter-name>timeFilter</filter-name>
@@ -99,7 +109,7 @@
     </filter-mapping>
 
 
-    <!-- LISTENERS -->
+    <!-- LISTENERS
     <listener>
         <listener-class>com.test.listener.MyHttpSessionActivationListener</listener-class>
     </listener>
@@ -124,5 +134,14 @@
     <listener>
         <listener-class>com.test.listener.MyServletRequestListener</listener-class>
     </listener>
+    -->
 
+    <session-config>
+        <!-- minutes -->
+        <session-timeout>240</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

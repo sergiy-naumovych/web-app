@@ -35,7 +35,11 @@ public class ProductController extends HttpServlet {
                 //OK
                 req.getRequestDispatcher(PAGE_OK).forward(req, resp);
                 return;
-            } catch (NumberFormatException | NoSuchEntityException | DaoSystemException e){
+            } catch (NumberFormatException e){
+                //NOP
+            } catch (NoSuchEntityException e){
+                //NOP
+            } catch (DaoSystemException e){
                 //NOP
             }
         }

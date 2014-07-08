@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.test.app</groupId>
-  <artifactId>test</artifactId>
+  <artifactId>eshop</artifactId>
   <packaging>war</packaging>
-  <version>0.1</version>
+  <version>0.2</version>
   <name>test Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -19,8 +19,15 @@
           <artifactId>javax.servlet-api</artifactId>
           <version>3.1-b01</version>
       </dependency>
-  </dependencies>
+      <!--
+      <dependency>
+          <groupId>org.tuckey</groupId>
+          <artifactId>urlrewritefilter</artifactId>
+          <version>4.0.3</version>
+      </dependency>
+      -->
+ </dependencies>
   <build>
-    <finalName>test</finalName>
+    <finalName>eshop</finalName>
   </build>
 </project>

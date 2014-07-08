@@ -22,7 +22,7 @@ public class SessionMockController extends HttpServlet {
             session.setAttribute("counter", counter);
         }
 
-        int numberOfVisits = counter.getAndDecrement();
+        int numberOfVisits = counter.getAndIncrement();
         resp.getWriter().write("You visit this page: " + numberOfVisits + " time");
     }
 }

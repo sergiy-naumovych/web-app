@@ -30,6 +30,7 @@ public class CookieMockController extends HttpServlet {
         } else {
             int visitCount = Integer.valueOf(fromClient.getValue());
             resp.addCookie(new Cookie("counter", "" + (visitCount+1)));
+            resp.getWriter().write("You visit this page " + visitCount + " time");
         }
     }
 }
