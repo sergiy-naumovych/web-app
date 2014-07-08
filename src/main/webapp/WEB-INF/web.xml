@@ -2,7 +2,7 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 3.1//EN"
  "http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_1.xsd" >
 
-<web-app version="3.1">
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
   <display-name>Archetype Created Web Application</display-name>
 
     <!-- SERVLETS -->
@@ -27,13 +27,60 @@
         <url-pattern>/mock.do</url-pattern>
     </servlet-mapping>
 
+    <!-- mvc mock -->
+    <servlet>
+        <servlet-name>mvcMockController</servlet-name>
+        <servlet-class>com.test.controller.MVCMockController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mvcMockController</servlet-name>
+        <url-pattern>/mvcMockController.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- session mock -->
+    <servlet>
+        <servlet-name>sessionMockController</servlet-name>
+        <servlet-class>com.test.controller.SessionMockController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sessionMockController</servlet-name>
+        <url-pattern>/sessionMockController.do</url-pattern>
+    </servlet-mapping>
+
+    <!-- cookie mock -->
+    <servlet>
+        <servlet-name>cookieMockController</servlet-name>
+        <servlet-class>com.test.controller.CookieMockController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cookieMockController</servlet-name>
+        <url-pattern>/cookieMockController.do</url-pattern>
+    </servlet-mapping>
+
 
     <!-- FILTERS -->
+    <!-- processing time -->
+    <filter>
+        <filter-name>timeFilter</filter-name>
+        <filter-class>com.test.filter.ProcessingTimeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>timeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- request info -->
     <filter>
         <filter-name>infoFilter</filter-name>
         <filter-class>com.test.filter.RequestInfoFilter</filter-class>
     </filter>
+    <filter-mapping>
+        <filter-name>infoFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
 
+    <!-- request info -->
     <filter>
         <filter-name>attributesToSessionFilter</filter-name>
         <filter-class>com.test.filter.AddAttributesToSession</filter-class>
@@ -46,12 +93,6 @@
             <param-value>filter-param-value-B</param-value>
         </init-param>
     </filter>
-
-    <filter-mapping>
-        <filter-name>infoFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-
-    </filter-mapping>
     <filter-mapping>
         <filter-name>attributesToSessionFilter</filter-name>
         <url-pattern>/*</url-pattern>

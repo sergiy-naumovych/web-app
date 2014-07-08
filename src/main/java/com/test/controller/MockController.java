@@ -14,8 +14,6 @@ public class MockController extends HttpServlet{
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        //RequestDispatcher page = req.getRequestDispatcher("a/b.jsp");
-
         resp.getWriter().write("Hello World");
 
     }

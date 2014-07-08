@@ -11,6 +11,9 @@
     <title></title>
 </head>
 <body>
-    Product
+    <b>Product Page</b>
+    <br />id: ${product.id}
+    <br />name: ${product.name}
+    <br /><a href="/index.jsp">Main Page</a>
 </body>
 </html>
